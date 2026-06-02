@@ -1,0 +1,16 @@
+[package]
+name = "authoritative_server_prototype"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+argon2 = { version = "0.5.3", features = ["std"] }
+eframe = "0.34.3"
+egui = "0.34.3"
+egui_extras = "0.34.3"
+env_logger = "0.11.10"
+fs = "0.0.5"
+rusqlite = "0.40.0"
+rustc-hash = "2.1.2"
+rusty_enet = "0.4.0"
+uuid = { version = "1.23.2", features = ["v4"] }
