@@ -79,7 +79,7 @@ pub fn run_client(authority: &str, response: Arc<Mutex<String>>, rx: Receiver<Co
                 },
             },
             Err(_) => {
-                // no command, continue normal work
+                // Nothing to do here
             }
         }
         std::thread::sleep(Duration::from_millis(10));

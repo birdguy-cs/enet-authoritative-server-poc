@@ -10,7 +10,7 @@ egui = "0.34.3"
 egui_extras = "0.34.3"
 env_logger = "0.11.10"
 fs = "0.0.5"
-rusqlite = "0.40.0"
+rusqlite = { version = "0.40.0", features = ["bundled"] }
 rustc-hash = "2.1.2"
 rusty_enet = "0.4.0"
 uuid = { version = "1.23.2", features = ["v4"] }

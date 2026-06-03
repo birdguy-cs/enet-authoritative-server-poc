@@ -1,10 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
-#![expect(rustdoc::missing_crate_level_docs)] // it's an example
 
 use eframe::egui;
 use std::sync::{mpsc::Sender, mpsc::Receiver, *};
 use egui::*;
-mod networking;
 mod authority_server;
 mod server_client;
 
@@ -23,10 +21,7 @@ fn main() -> eframe::Result {
     eframe::run_native(
         "Server networking test",
         options,
-        Box::new(|cc| {
-            // This gives us image support:
-            egui_extras::install_image_loaders(&cc.egui_ctx);
-
+        Box::new(|_| {
             Ok(Box::<MyApp>::default())
         }),
     )
@@ -142,7 +137,6 @@ fn extract_quoted(input: &str) -> Vec<&str> {
     while let Some(start) = remaining.find('\'') {
         let content_start = offset + start + 1;
         remaining = &input[content_start..];
-        offset = content_start;
 
         if let Some(end) = remaining.find('\'') {
             results.push(&input[content_start..content_start + end]);

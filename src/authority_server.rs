@@ -16,7 +16,6 @@ use rusty_enet as enet;
 use crate::extract_quoted;
 
 pub struct Ticket {
-    pub ticket_id: String,
     pub served_user: String,
     pub creation_time: Instant,
 }
@@ -102,7 +101,6 @@ impl Server {
         let ticket_id = Uuid::new_v4().to_string();
         
         let ticket = Ticket {
-            ticket_id: ticket_id.clone(),
             served_user: username.to_string(),
             creation_time: Instant::now(),
         };
@@ -208,8 +206,6 @@ pub fn run_server(server: &str, response: Arc<Mutex<String>>) {
                 }
             }
         }
-        // let packet = enet::Packet::reliable(respond_message.as_bytes());
-        // _ = peer.send(0, &packet);
 
         std::thread::sleep(Duration::from_millis(10));
     }
